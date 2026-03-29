@@ -20,16 +20,15 @@ const Navbar = () => {
       <nav className="w-full max-w-2xl bg-card/80 backdrop-blur-2xl border border-glass-border rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.5),0_0_60px_hsl(265_85%_60%/0.06)]">
         <div className="px-4 h-12 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary/25 to-primary/5 border border-primary/25 flex items-center justify-center group-hover:from-primary/35 group-hover:to-primary/15 group-hover:border-primary/35 transition-all duration-300 shadow-[0_0_12px_hsl(265_85%_60%/0.15)]">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-primary">
-                <path d="M4 4L12 12L20 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M4 20L12 12L20 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-7 h-7 rounded-lg bg-primary/12 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/30 transition-all duration-300">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="M3 3L8 8L13 3" stroke="hsl(265, 85%, 70%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M3 13L8 8L13 13" stroke="hsl(265, 85%, 70%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <span className="text-sm font-extrabold tracking-tight">
-              <span className="gradient-text">X</span>
-              <span className="text-foreground">-NET</span>
+            <span className="text-[13px] font-extrabold tracking-tight text-foreground">
+              X-NET
             </span>
           </Link>
 

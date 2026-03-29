@@ -1,41 +1,39 @@
 import { type LucideIcon } from "lucide-react";
 import { Zap, Shield, Bot, Brain, Gamepad2, Globe } from "lucide-react";
 
-// Big stylized X logo for X-GUI and X-Bot
-const XLogo = ({ className = "w-10 h-10" }: { className?: string }) => (
-  <svg viewBox="0 0 40 40" className={className}>
-    <rect width="40" height="40" rx="10" fill="hsl(265 85% 60% / 0.1)" />
-    <path d="M12 12L20 20M20 20L28 12M20 20L12 28M20 20L28 28" stroke="hsl(265 85% 70%)" strokeWidth="3" strokeLinecap="round"/>
-    <circle cx="20" cy="20" r="2.5" fill="hsl(265 85% 70%)" opacity="0.5"/>
-  </svg>
+// X-branded logo for X-GUI and X-Bot
+const XBrandLogo = ({ className = "w-10 h-10" }: { className?: string }) => (
+  <div className={`${className} rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center`}>
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+      <path d="M6 6L18 18M18 6L6 18" stroke="hsl(265, 85%, 70%)" strokeWidth="2.5" strokeLinecap="round"/>
+    </svg>
+  </div>
 );
 
 const KahootLogo = ({ className = "w-10 h-10" }: { className?: string }) => (
-  <svg viewBox="0 0 40 40" className={className}>
-    <rect width="40" height="40" rx="10" fill="hsl(265 85% 60% / 0.1)" />
-    <text x="50%" y="56%" dominantBaseline="middle" textAnchor="middle" fill="hsl(265 85% 70%)" fontSize="16" fontWeight="800" fontFamily="system-ui">K!</text>
-  </svg>
+  <div className={`${className} rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center`}>
+    <span className="text-sm font-black text-primary">K!</span>
+  </div>
 );
 
 const QuizizzLogo = ({ className = "w-10 h-10" }: { className?: string }) => (
-  <svg viewBox="0 0 40 40" className={className}>
-    <rect width="40" height="40" rx="10" fill="hsl(265 85% 60% / 0.1)" />
-    <text x="50%" y="56%" dominantBaseline="middle" textAnchor="middle" fill="hsl(265 85% 70%)" fontSize="18" fontWeight="800" fontFamily="system-ui">Q</text>
-  </svg>
+  <div className={`${className} rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center`}>
+    <span className="text-base font-black text-primary">Q</span>
+  </div>
 );
 
 const IXLLogo = ({ className = "w-10 h-10" }: { className?: string }) => (
-  <svg viewBox="0 0 40 40" className={className}>
-    <rect width="40" height="40" rx="10" fill="hsl(265 85% 60% / 0.1)" />
-    <text x="50%" y="56%" dominantBaseline="middle" textAnchor="middle" fill="hsl(265 85% 70%)" fontSize="12" fontWeight="800" fontFamily="system-ui">IXL</text>
-  </svg>
+  <div className={`${className} rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center`}>
+    <span className="text-[10px] font-black text-primary tracking-tight">IXL</span>
+  </div>
 );
 
 const WaygroundLogo = ({ className = "w-10 h-10" }: { className?: string }) => (
-  <svg viewBox="0 0 40 40" className={className}>
-    <rect width="40" height="40" rx="10" fill="hsl(265 85% 60% / 0.1)" />
-    <path d="M10 25L15 15L20 22L25 12L30 25" stroke="hsl(265 85% 70%)" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
+  <div className={`${className} rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center`}>
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+      <path d="M4 16L8 8L12 13L16 5L20 16" stroke="hsl(265, 85%, 70%)" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  </div>
 );
 
 export interface CheatData {
@@ -79,7 +77,7 @@ export const cheats: CheatData[] = [
     features: ["Token gen", "Blook unlocker", "Mode exploits"],
     status: "operational",
     icon: Gamepad2,
-    logo: XLogo,
+    logo: XBrandLogo,
     version: "2.8.0",
     platform: "Browser Console / Bookmarklet",
     requirements: ["Any modern browser", "Access to browser console (F12)", "Active Blooket session"],
@@ -94,7 +92,7 @@ export const cheats: CheatData[] = [
     features: ["Auto-play", "Silent mode", "Background exec"],
     status: "operational",
     icon: Zap,
-    logo: XLogo,
+    logo: XBrandLogo,
     version: "1.5.3",
     platform: "Node.js Script",
     requirements: ["Node.js 18+", "npm or yarn", "Blooket account credentials"],
