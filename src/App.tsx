@@ -10,6 +10,7 @@ import Cheats from "./pages/Cheats";
 import Status from "./pages/Status";
 import Reviews from "./pages/Reviews";
 import Credits from "./pages/Credits";
+import CheatDetail from "./pages/CheatDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const AnimatedRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
         <Route path="/cheats" element={<Cheats />} />
+        <Route path="/cheats/:slug" element={<CheatDetail />} />
         <Route path="/status" element={<Status />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/credits" element={<Credits />} />

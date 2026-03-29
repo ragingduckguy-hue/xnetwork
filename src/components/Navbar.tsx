@@ -21,10 +21,10 @@ const Navbar = () => {
         <div className="px-4 h-12 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/10 group-hover:border-primary/30 transition-all duration-300">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-primary">
-                <path d="M18.364 5.636L12 12m0 0L5.636 5.636M12 12l6.364 6.364M12 12L5.636 18.364" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-                <circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.4"/>
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary/25 to-primary/5 border border-primary/25 flex items-center justify-center group-hover:from-primary/35 group-hover:to-primary/15 group-hover:border-primary/35 transition-all duration-300 shadow-[0_0_12px_hsl(265_85%_60%/0.15)]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-primary">
+                <path d="M4 4L12 12L20 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M4 20L12 12L20 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
             <span className="text-sm font-extrabold tracking-tight">
@@ -51,7 +51,7 @@ const Navbar = () => {
                       transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
                     />
                   )}
-                  <Icon className={`relative z-10 w-3.5 h-3.5 transition-colors duration-300 ${isActive ? "text-primary" : "text-muted-foreground group-hover:text-foreground"}`} />
+                  <Icon className={`relative z-10 w-3.5 h-3.5 transition-colors duration-300 ${isActive ? "text-primary" : "text-muted-foreground"}`} />
                   <span className={`relative z-10 transition-colors duration-300 ${isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}>
                     {item.label}
                   </span>
@@ -75,7 +75,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile menu */}
         <AnimatePresence>
           {mobileOpen && (
             <motion.div
