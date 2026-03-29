@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Home, Crosshair, Activity, MessageSquare, Users } from "lucide-react";
 
 const navItems = [
-  { path: "/", label: "Home" },
-  { path: "/cheats", label: "Cheats" },
-  { path: "/status", label: "Status" },
-  { path: "/reviews", label: "Reviews" },
-  { path: "/credits", label: "Credits" },
+  { path: "/", label: "Home", icon: Home },
+  { path: "/cheats", label: "Cheats", icon: Crosshair },
+  { path: "/status", label: "Status", icon: Activity },
+  { path: "/reviews", label: "Reviews", icon: MessageSquare },
+  { path: "/credits", label: "Credits", icon: Users },
 ];
 
 const Navbar = () => {
@@ -16,47 +17,55 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4">
-      <nav className="w-full max-w-3xl bg-card/70 backdrop-blur-2xl border border-glass-border rounded-2xl shadow-[0_8px_40px_hsl(265_85%_60%/0.08),0_2px_12px_rgba(0,0,0,0.4)]">
-        <div className="px-5 h-14 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-7 h-7 rounded-lg bg-primary/15 border border-primary/25 flex items-center justify-center group-hover:bg-primary/25 transition-colors">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-primary">
-                <path d="M2 2L8 8M8 8L14 2M8 8L2 14M8 8L14 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+      <nav className="w-full max-w-2xl bg-card/80 backdrop-blur-2xl border border-glass-border rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.5),0_0_60px_hsl(265_85%_60%/0.06)]">
+        <div className="px-4 h-12 flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/10 group-hover:border-primary/30 transition-all duration-300">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-primary">
+                <path d="M18.364 5.636L12 12m0 0L5.636 5.636M12 12l6.364 6.364M12 12L5.636 18.364" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+                <circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.4"/>
               </svg>
             </div>
-            <span className="text-sm font-bold tracking-tight text-foreground">
-              X-NETWORK
+            <span className="text-sm font-extrabold tracking-tight">
+              <span className="gradient-text">X</span>
+              <span className="text-foreground">-NET</span>
             </span>
           </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-0.5">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="relative px-3.5 py-1.5 text-[13px] font-medium rounded-lg transition-colors"
-              >
-                {location.pathname === item.path && (
-                  <motion.div
-                    layoutId="nav-active"
-                    className="absolute inset-0 bg-primary/10 border border-primary/20 rounded-lg"
-                    transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
-                  />
-                )}
-                <span className={`relative z-10 ${location.pathname === item.path ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}>
-                  {item.label}
-                </span>
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = location.pathname === item.path;
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className="relative px-3 py-1.5 text-[12px] font-medium rounded-lg transition-all duration-300 flex items-center gap-1.5"
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-active"
+                      className="absolute inset-0 bg-primary/8 border border-primary/15 rounded-lg"
+                      transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
+                    />
+                  )}
+                  <Icon className={`relative z-10 w-3.5 h-3.5 transition-colors duration-300 ${isActive ? "text-primary" : "text-muted-foreground group-hover:text-foreground"}`} />
+                  <span className={`relative z-10 transition-colors duration-300 ${isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}>
+                    {item.label}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden w-9 h-9 rounded-lg bg-secondary/60 flex items-center justify-center"
+            className="md:hidden w-8 h-8 rounded-lg bg-secondary/60 flex items-center justify-center transition-colors hover:bg-secondary"
           >
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" className="text-foreground">
+            <svg width="14" height="14" viewBox="0 0 18 18" fill="none" className="text-foreground">
               {mobileOpen ? (
                 <path d="M4 4L14 14M14 4L4 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
               ) : (
@@ -73,23 +82,29 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
               className="md:hidden border-t border-glass-border overflow-hidden"
             >
-              <div className="px-4 py-3 flex flex-col gap-0.5">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={() => setMobileOpen(false)}
-                    className={`px-3.5 py-2.5 rounded-lg text-[13px] font-medium transition-colors ${
-                      location.pathname === item.path
-                        ? "bg-primary/10 text-primary"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+              <div className="px-3 py-2.5 flex flex-col gap-0.5">
+                {navItems.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = location.pathname === item.path;
+                  return (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      onClick={() => setMobileOpen(false)}
+                      className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[13px] font-medium transition-all duration-200 ${
+                        isActive
+                          ? "bg-primary/10 text-primary"
+                          : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </div>
             </motion.div>
           )}
