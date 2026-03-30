@@ -20,7 +20,6 @@ const CheatDetail = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[180px] pointer-events-none" />
 
       <section className="max-w-3xl mx-auto px-6 py-20 relative z-10">
-        {/* Back */}
         <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
           <Link to="/cheats" className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors mb-8">
             <ArrowLeft className="w-3.5 h-3.5" />
@@ -28,7 +27,6 @@ const CheatDetail = () => {
           </Link>
         </motion.div>
 
-        {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass-card p-8 mb-6 relative overflow-hidden">
           <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
           <div className="relative z-10 flex items-start gap-6">
@@ -49,7 +47,6 @@ const CheatDetail = () => {
           </div>
         </motion.div>
 
-        {/* Info grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -71,7 +68,6 @@ const CheatDetail = () => {
           ))}
         </motion.div>
 
-        {/* Features */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,7 +87,6 @@ const CheatDetail = () => {
           </div>
         </motion.div>
 
-        {/* Requirements */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -109,7 +104,6 @@ const CheatDetail = () => {
           </div>
         </motion.div>
 
-        {/* Installation steps */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -129,7 +123,6 @@ const CheatDetail = () => {
           </div>
         </motion.div>
 
-        {/* Download CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
